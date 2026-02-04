@@ -35,7 +35,7 @@
     <div style="position:fixed;right:30px;bottom:50px;">
         <a href="https://wa.me/message/LJM7CFHYRVYFK1">
         <button style="background:#32C03C;vertical-align:center;height:36px;border-radius:5px">
-        <img src="https://i.postimg.cc/Gh1h62q5/whatsapp.png" style= "width: 15px"> Whatsapp Kami</button></a>
+        <img src="https://i.postimg.cc/Gh1h62q5/whatsapp.png" referrerpolicy="no-referrer" style= "width: 15px"> Whatsapp Kami</button></a>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
         <div class="container">
@@ -51,7 +51,7 @@
         </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero" referrerpolicy="no-referrer">
         <div class="container">
             <h1 class="display-3 fw-bold mb-3">Selamat Datang Selamat Berbelanja</h1>
             <p class="lead mb-4"><b>Kami jual berbagai macam keperluan harian anda.</p>
@@ -76,7 +76,7 @@
             @foreach ($products as $p)
                 <div class="col-md-3">
                     <div class="card card-product h-100">
-                        <img src="{{ $p['img'] }}" class="card-img-top product-img" alt="{{ $p['name'] }}">
+                        <img src="{{ $p['img'] }}" referrerpolicy="no-referrer" class="card-img-top product-img" alt="{{ $p['name'] }}">
                         <div class="card-body">
                             <h5 class="card-title fw-bold">{{ $p['name'] }}</h5>
                            <!-- <p class="text-muted small">{{ $p['ket'] }}</p> -->
@@ -100,7 +100,7 @@
                     <p>Warung ini adalah bukti bahwa ketulusan dalam melayani bisa membuat kami bertahan sejak 2008 hingga hari ini. Terima kasih telah menjadi pelanggan setia dan bagian dari perjalanan panjang kami.</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="https://i.postimg.cc/B6vWDWSz/IMG-20250525-123622.jpg?w=400&q=80" class="story-img shadow-lg" alt="Artisan">
+                    <img src="https://i.postimg.cc/B6vWDWSz/IMG-20250525-123622.jpg?w=400&q=80" referrerpolicy="no-referrer" class="story-img shadow-lg" alt="Artisan">
                 </div>
             </div>
         </div>
