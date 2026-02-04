@@ -27,3 +27,9 @@ Route::middleware(['owner.auth'])->group(function () {
     Route::delete('/owner/delete/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
     Route::post('/owner/scan', [ProdukController::class, 'scan'])->name('produk.scan');
 });
+
+// 1 kali panggil saja, untuk isi data supabase
+Route::get('/jalankan-migrasi', function () {
+    Artisan::call('migrate:fresh --force');
+    return "Database Berhasil Dimigrasi!";
+});
