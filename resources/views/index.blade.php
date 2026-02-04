@@ -54,7 +54,7 @@
     <header class="hero" referrerpolicy="no-referrer">
         <div class="container">
             <h1 class="display-3 fw-bold mb-3">Selamat Datang Selamat Berbelanja</h1>
-            <p class="lead mb-4"><b>Kami jual berbagai macam keperluan harian anda.</p>
+            <p class="lead mb-4"><b>Kami Jual Berbagai Macam Keperluan Harian Anda.</p>
             <a href="#products" class="btn btn-light btn-lg px-5 rounded-0">Belanja Sekarang</a>
         </div>
     </header>
