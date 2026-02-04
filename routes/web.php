@@ -8,7 +8,8 @@ Route::get('/', function () {
 })->name('home.index');
 
 
-/*Route::get('/owner', [ProdukController::class, 'index'])->name('produk.index');
+/*
+Route::get('/owner', [ProdukController::class, 'index'])->name('produk.index');
 Route::post('/owner/store', [ProdukController::class, 'store'])->name('produk.store');
 Route::post('/owner/scan', [ProdukController::class, 'scan'])->name('produk.scan');
 Route::delete('/owner/{id}', [ProdukController::class, 'destroy'])->name('produk.destroy');
@@ -30,6 +31,7 @@ Route::middleware(['owner.auth'])->group(function () {
 
 //untuk isi data supabase
 use Illuminate\Support\Facades\Artisan;
+/*
 
 Route::get('/debug-migrate', function () {
     // Memberikan waktu tambahan menjadi 2 menit (120 detik)
@@ -42,4 +44,5 @@ Route::get('/debug-migrate', function () {
         return "Gagal Migrasi: " . $e->getMessage();
     }
 });
+*/
 
