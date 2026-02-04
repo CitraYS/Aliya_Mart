@@ -33,7 +33,7 @@
 </head>
 <body>
     <div style="position:fixed;right:30px;bottom:50px;">
-        <a href="https://wa.me/message/LJM7CFHYRVYFK1">
+        <a href="https://wa.me/message/LJM7CFHYRVYFK1" target="_blank">
         <button style="background:#32C03C;vertical-align:center;height:36px;border-radius:5px">
         <img src="{{ asset('img/whatsapp.png') }}" referrerpolicy="no-referrer" style= "width: 15px"> Whatsapp Kami</button></a>
     </div>
@@ -43,7 +43,7 @@
             <div class="ms-auto">
                 <ul class="navbar-nav flex-row">
                     <li class="nav-item px-3"><a href="#products" class="nav-link">Produk</a></li>
-                    <li class="nav-item px-3"><a href="#about" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item px-3"><a href="#about" class="nav-link">Tentang</a></li>
                     <li class="nav-item px-3"><a href="#galeri" class="nav-link">Galeri</a></li>
                     <li class="nav-item px-3"><a href="#contact" class="nav-link">Kontak</a></li>
                 </ul>
