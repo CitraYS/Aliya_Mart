@@ -13,7 +13,7 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(158, 158, 158, 0.45), rgba(16, 21, 64, 0.7)), url('https://i.postimg.cc/Rhj5fHfw/IMG-20250628-205604.jpg?auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(158, 158, 158, 0.45), rgba(16, 21, 64, 0.7)), url('img/gbr_(11).jpg?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -66,14 +66,6 @@
 </head>
 
 <body>
-    <div style="position:fixed;right:30px;bottom:50px;z-index:999;">
-        <a href="https://wa.me/message/LJM7CFHYRVYFK1" target="_blank" >
-            <button style="background:#32C03C;color:white;border:none;height:40px;border-radius:5px;padding:0 15px;">
-                <img src="https://i.postimg.cc/Gh1h62q5/whatsapp.png" style="width: 15px"> Whatsapp Kami
-            </button>
-        </a>
-    </div>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">Aliya Mart dan Ponsel</a>

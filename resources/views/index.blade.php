@@ -11,7 +11,7 @@
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         
         .hero {
-            background: linear-gradient(rgba(158, 158, 158, 0.45), rgba(16, 21, 64, 0.7)), url('https://i.postimg.cc/Rhj5fHfw/IMG-20250628-205604.jpg?auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(158, 158, 158, 0.45), rgba(16, 21, 64, 0.7)), url('img/gbr_(11).jpg?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -35,7 +35,7 @@
     <div style="position:fixed;right:30px;bottom:50px;">
         <a href="https://wa.me/message/LJM7CFHYRVYFK1">
         <button style="background:#32C03C;vertical-align:center;height:36px;border-radius:5px">
-        <img src="https://i.postimg.cc/Gh1h62q5/whatsapp.png" referrerpolicy="no-referrer" style= "width: 15px"> Whatsapp Kami</button></a>
+        <img src="{{ asset('img/whatsapp.png') }}" referrerpolicy="no-referrer" style= "width: 15px"> Whatsapp Kami</button></a>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
         <div class="container">
@@ -66,10 +66,10 @@
         <div class="row g-4">
             @php
             $products = [
-                ['name' => 'Sembako', 'ket' => 'Handcrafted Ceramics', 'price' => '$45', 'img' => 'https://i.postimg.cc/DwB15djp/ef74d2014c25f33a0ef1382642807ee7.png/?w=400&q=80'],
-                ['name' => 'Makanan', 'ket' => 'Handcrafted Ceramics', 'price' => '$28', 'img' => 'https://i.postimg.cc/G20tj4CB/Sd9ea6b010e084151bdc4dbb7d8d204f0n.jpg/?w=400&q=80'],
-                ['name' => 'Minuman', 'ket' => 'Handcrafted Ceramics', 'price' => '$62', 'img' => 'https://i.postimg.cc/mr1ND1jr/5e16417793100fa174976c04553c9697.jpg?w=400&q=80'],
-                ['name' => 'Pulsa & Token PLN', 'ket' => 'Handcrafted Ceramics', 'price' => '$38', 'img' => 'https://i.postimg.cc/XJVJPTrV/Usaha-Pulsa-Token-Berbau-Riba.jpg?w=400&q=80']
+                ['name' => 'Sembako', 'ket' => 'Handcrafted Ceramics', 'price' => '$45', 'img' => asset('img/produk-(1).jpg').'?w=400&q=80'],
+                ['name' => 'Makanan', 'ket' => 'Handcrafted Ceramics', 'price' => '$28', 'img' => asset('img/produk-(2).jpg').'?w=400&q=80'],
+                ['name' => 'Minuman', 'ket' => 'Handcrafted Ceramics', 'price' => '$62', 'img' => asset('img/produk-(3).jpg').'?w=400&q=80'],
+                ['name' => 'Pulsa & Token PLN', 'ket' => 'Handcrafted Ceramics', 'price' => '$38', 'img' => asset('img/produk-(4).jpg').'?w=400&q=80']
             ];
             @endphp
 
@@ -100,7 +100,7 @@
                     <p>Warung ini adalah bukti bahwa ketulusan dalam melayani bisa membuat kami bertahan sejak 2008 hingga hari ini. Terima kasih telah menjadi pelanggan setia dan bagian dari perjalanan panjang kami.</p>
                 </div>
                 <div class="col-md-4">
-                    <img src="https://i.postimg.cc/B6vWDWSz/IMG-20250525-123622.jpg?w=400&q=80" referrerpolicy="no-referrer" class="story-img shadow-lg" alt="Artisan">
+                    <img src="{{ asset('img/gbr_(10).jpg') }}?w=400&q=80" referrerpolicy="no-referrer" class="story-img shadow-lg" alt="Artisan">
                 </div>
             </div>
         </div>
@@ -192,7 +192,7 @@
                 <div class="info-box">
                     <h6 class="fw-bold">Whatsapp</h6>
                     <p class="small text-muted mb-0">
-                    <img src="https://i.postimg.cc/Gh1h62q5/whatsapp.png" style= "width: 20px">    
+                    <img src="{{ asset('img/whatsapp.png') }}" style= "width: 20px">    
                     <a href="https://wa.me/message/LJM7CFHYRVYFK1" target="_blank" class="text-decoration-none">+62 851 6576 8187</a></p>
                 </div>
             </div>
