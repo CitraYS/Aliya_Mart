@@ -115,31 +115,62 @@
             <!-- kolom 1 -->
             <div class="col-md-3">
                 <div class="card card-product h-100">
-                    <img src="" class="card-img-top product-img" alt="">
+                    <img src="{{ asset('img/gbr_(1).jpg') }}" class="card-img-top product-img" alt="">
                 </div>
                 <div class="d-flex justify-content-between align-items-center"></div>
             </div>
             <!-- kolom 2 -->
             <div class="col-md-3">
                 <div class="card card-product h-100">
-                    <img src="" class="card-img-top product-img" alt="">
+                    <img src="{{ asset('img/gbr_(8).jpg') }}" class="card-img-top product-img" alt="">
                     <div class="d-flex justify-content-between align-items-center"></div>
                 </div>
             </div>
             <!-- kolom 3 -->
             <div class="col-md-3">
                 <div class="card card-product h-100">
-                    <img src="" class="card-img-top product-img" alt="">
+                    <img src="{{ asset('img/gbr_(3).jpg') }}" class="card-img-top product-img" alt="">
                     <div class="d-flex justify-content-between align-items-center"></div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="card card-product h-100">
-                    <img src="" class="card-img-top product-img" alt="">
+                    <img src="{{ asset('img/gbr_(5).jpg') }}" class="card-img-top product-img" alt="">
                     <div class="d-flex justify-content-between align-items-center"></div>
                 </div>
             </div>
         </div> 
+        <p><br>
+        <!-- baris 2 -->
+        <div class="row g-4">
+            <!-- kolom 1 -->
+            <div class="col-md-3">
+                <div class="card card-product h-100">
+                    <img src="{{ asset('img/gbr_(2).jpg') }}" class="card-img-top product-img" alt="">
+                </div>
+                <div class="d-flex justify-content-between align-items-center"></div>
+            </div>
+            <!-- kolom 2 -->
+            <div class="col-md-3">
+                <div class="card card-product h-100">
+                    <img src="{{ asset('img/gbr_(11).jpg') }}" class="card-img-top product-img" alt="">
+                    <div class="d-flex justify-content-between align-items-center"></div>
+                </div>
+            </div>
+            <!-- kolom 3 -->
+            <div class="col-md-3">
+                <div class="card card-product h-100">
+                    <img src="{{ asset('img/gbr_(6).jpg') }}" class="card-img-top product-img" alt="">
+                    <div class="d-flex justify-content-between align-items-center"></div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card card-product h-100">
+                    <img src="{{ asset('img/gbr_(9).jpg') }}" class="card-img-top product-img" alt="">
+                    <div class="d-flex justify-content-between align-items-center"></div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="contact" class="container py-5 text-center">
@@ -177,7 +208,7 @@
                 <a href="#" class="text-white mx-2 text-decoration-none">Instagram</a>
                 <!-- <a href="https://wa.me/message/LJM7CFHYRVYFK1" target="_blank" class="text-white mx-2 text-decoration-none">Whatsapp</a> -->
             </div>
-            <p class="small opacity-50">&copy; {{ date('Y') }} <a href="#"> citra yunela sari</a>. All rights reserved.</p>
+            <p class="small opacity-50">&copy; {{ date('Y') }} .<a href="https://www.instagram.com/citrayunela/" target="_blank" class="text-white mx-2 text-decoration-none">Citra Yunela Sari .</a>All rights reserved </p>
         </div>
     </footer>
 

@@ -6,17 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aliya Mart & Ponsel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             color: #333;
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Playfair Display', serif;
         }
 
         .hero {
@@ -74,7 +67,7 @@
 
 <body>
     <div style="position:fixed;right:30px;bottom:50px;z-index:999;">
-        <a href="https://wa.me/message/LJM7CFHYRVYFK1">
+        <a href="https://wa.me/message/LJM7CFHYRVYFK1" target="_blank" >
             <button style="background:#32C03C;color:white;border:none;height:40px;border-radius:5px;padding:0 15px;">
                 <img src="https://i.postimg.cc/Gh1h62q5/whatsapp.png" style="width: 15px"> Whatsapp Kami
             </button>
@@ -87,18 +80,12 @@
             <div class="ms-auto">
                 <ul class="navbar-nav flex-row">
                     <li class="nav-item px-3"><a href="{{ url('/') }}" class="nav-link">Homepage</a></li>
+                    <li class="nav-item px-3"><a href="{{ route('owner.logout') }}" class="nav-link text-danger">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <header class="hero">
-        <div class="container">
-            <h1 class="display-3 fw-bold mb-3">Selamat Datang Selamat Berbelanja</h1>
-            <button type="button" class="btn btn-light btn-lg px-5 rounded-0" data-bs-toggle="modal" data-bs-target="#scanProduk">SCAN / TAMBAH BARCODE</button>
-        </div>
-    </header>
-
+    <!--- notifikasi produk -->
     <div class="container mt-3">
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -114,8 +101,42 @@
         </div>
         @endif
     </div>
+    <header class="hero">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">Selamat Datang Selamat Berbelanja</h1>
+            <button type="button" class="btn btn-light btn-lg px-5 rounded-0" data-bs-toggle="modal" data-bs-target="#scanProduk">SCAN / TAMBAH BARCODE</button>
+        </div>
+    </header>
 
     <section id="products" class="container py-5">
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 bg-primary text-white">
+                    <div class="card-body">
+                        <h6 class="text-uppercase small">Total Jenis Produk</h6>
+                        <h2 class="fw-bold mb-0">{{ $products->count() }} Item</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 bg-dark text-white">
+                    <div class="card-body">
+                        <h6 class="text-uppercase small">Total Modal Stok</h6>
+                        <h2 class="fw-bold mb-0">Rp {{ number_format($total_modal, 0, ',', '.') }}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 bg-success text-white">
+                    <div class="card-body">
+                        <h6 class="text-uppercase small">Potensi Omzet (Harga Jual)</h6>
+                        <h2 class="fw-bold mb-0">Rp {{ number_format($total_jual, 0, ',', '.') }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="fw-bold">Daftar Stok Produk</h2>
             <div class="search-box w-50 mx-3">
@@ -136,6 +157,7 @@
                         <th>Harga Modal</th>
                         <th>Stok</th>
                         <th>Barcode</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -147,6 +169,26 @@
                         <td>Rp {{ number_format($p->harga_modal, 0, ',', '.') }}</td>
                         <td>{{ $p->stok_produk }}</td>
                         <td><span class="badge bg-secondary">{{ $p->barcode }}</span></td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-warning btn-sm"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalEdit"
+                                    data-id="{{ $p->id }}"
+                                    data-nama="{{ $p->nama_produk }}"
+                                    data-harga="{{ $p->harga_produk }}"
+                                    data-modal="{{ $p->harga_modal }}"
+                                    data-stok="{{ $p->stok_produk }}"
+                                    data-barcode="{{ $p->barcode }}">
+                                    Edit
+                                </button>
+
+                                <form action="{{ route('produk.destroy', $p->id) }}" method="POST" onsubmit="return confirm('Yakin hapus?')">
+                                    @csrf @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                </form>
+                            </div>
+                        </td>
                     </tr>
                     @empty
                     <tr>
@@ -200,6 +242,49 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Produk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form id="formEdit" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label>Nama Produk</label>
+                            <input type="text" name="nama_produk" id="edit_nama" class="form-control" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label>Harga Jual</label>
+                                <input type="number" name="harga_produk" id="edit_harga" class="form-control" required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label>Harga Modal</label>
+                                <input type="number" name="harga_modal" id="edit_modal" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label>Stok</label>
+                            <input type="number" name="stok_produk" id="edit_stok" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Barcode</label>
+                            <input type="text" name="barcode" id="edit_barcode" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="scanProduk" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -229,7 +314,7 @@
     <footer>
         <div class="container text-center">
             <h5 class="fw-bold">Aliya Mart dan Ponsel</h5>
-            <p class="small opacity-50">&copy; {{ date('Y') }} Citra Yunela Sari. All rights reserved.</p>
+            <p class="small opacity-50">&copy; {{ date('Y') }} .<a href="https://www.instagram.com/citrayunela/" target="_blank" class="text-white mx-2 text-decoration-none">Citra Yunela Sari .</a>All rights reserved </p>
         </div>
     </footer>
 
@@ -353,6 +438,31 @@
         // Matikan kamera saat modal ditutup agar baterai tidak boros
         scanModal.addEventListener('hidden.bs.modal', function() {
             stopScanner();
+        });
+    </script>
+    <script>
+        const modalEdit = document.getElementById('modalEdit');
+        modalEdit.addEventListener('show.bs.modal', function(event) {
+            // Tombol yang memicu modal
+            const button = event.relatedTarget;
+
+            // Ambil data dari atribut data-*
+            const id = button.getAttribute('data-id');
+            const nama = button.getAttribute('data-nama');
+            const harga = button.getAttribute('data-harga');
+            const modal = button.getAttribute('data-modal');
+            const stok = button.getAttribute('data-stok');
+            const barcode = button.getAttribute('data-barcode');
+
+            // Isi input di dalam modal
+            document.getElementById('edit_nama').value = nama;
+            document.getElementById('edit_harga').value = harga;
+            document.getElementById('edit_modal').value = modal;
+            document.getElementById('edit_stok').value = stok;
+            document.getElementById('edit_barcode').value = barcode;
+
+            // Atur action form agar mengarah ke route update yang benar
+            document.getElementById('formEdit').action = '/owner/update/' + id;
         });
     </script>
 </body>
