@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdukController; //untuk produk
+use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', function () {
     return view('index'); 
@@ -30,7 +31,7 @@ Route::middleware(['owner.auth'])->group(function () {
 });
 
 //untuk isi data supabase
-use Illuminate\Support\Facades\Artisan;
+
 /*
 
 Route::get('/debug-migrate', function () {
