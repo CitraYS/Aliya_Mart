@@ -185,7 +185,7 @@
             <div class="col-md-4 col-sm-6">
                 <div class="info-box">
                     <h6 class="fw-bold">Jam Buka</h6>
-                    <p class="small text-muted mb-0">Minggu - Senin : 07.00-23.00 wib</p>
+                    <p class="small text-muted mb-0">Senin - Minggu : 07.00-23.00 wib</p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6">
