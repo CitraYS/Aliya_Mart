@@ -28,8 +28,14 @@ Route::middleware(['owner.auth'])->group(function () {
     Route::post('/owner/scan', [ProdukController::class, 'scan'])->name('produk.scan');
 });
 
-// 1 kali panggil saja, untuk isi data supabase
-Route::get('/jalankan-migrasi', function () {
-    Artisan::call('migrate:fresh --force');
-    return "Database Berhasil Dimigrasi!";
+//untuk isi data supabase
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/debug-migrate', function () {
+    try {
+        Artisan::call('migrate:fresh --force');
+        return "Migrasi Berhasil!";
+    } catch (\Exception $e) {
+        return "Gagal Migrasi: " . $e->getMessage();
+    }
 });
