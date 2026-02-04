@@ -32,10 +32,14 @@ Route::middleware(['owner.auth'])->group(function () {
 use Illuminate\Support\Facades\Artisan;
 
 Route::get('/debug-migrate', function () {
+    // Memberikan waktu tambahan menjadi 2 menit (120 detik)
+    set_time_limit(120);
+
     try {
-        Artisan::call('migrate:fresh --force');
-        return "Migrasi Berhasil!";
+        \Artisan::call('migrate', ['--force' => true]);
+        return "Migrasi Berhasil! Output: <br>" . nl2br(\Artisan::output());
     } catch (\Exception $e) {
         return "Gagal Migrasi: " . $e->getMessage();
     }
 });
+
